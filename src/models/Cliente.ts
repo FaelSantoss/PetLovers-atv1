@@ -1,3 +1,4 @@
+import Compra from "./Compra"
 import CPF from "./Cpf"
 import Pet from "./Pet"
 import Produto from "./Produto"
@@ -8,12 +9,12 @@ import Telefone from "./Telefone"
 export default class Cliente {
     public nome: string
     public nomeSocial: string
-    private cpf: CPF
+    public cpf: CPF
     private rgs: Array<RG>
     private dataCadastro: Date
     private telefones: Array<Telefone>
-    private produtosConsumidos: Array<Produto>
-    private servicosConsumidos: Array<Servico>
+    private produtosConsumidos: Array<Compra>
+    private servicosConsumidos: Array<Compra>
     private pets: Array<Pet>
     constructor(nome: string, nomeSocial: string, cpf: CPF) {
         this.nome = nome
@@ -38,12 +39,22 @@ export default class Cliente {
     public get getTelefones(): Array<Telefone> {
         return this.telefones
     }
-    public get getProdutosConsumidos(): Array<Produto> {
+    
+    public get getProdutosConsumidos(): Array<Compra> {
         return this.produtosConsumidos
     }
-    public get getServicosConsumidos(): Array<Servico> {
+    public get getServicosConsumidos(): Array<Compra> {
         return this.servicosConsumidos
     }
+
+    public adicionarProdutoConsumido(compra: Compra): void {
+        this.produtosConsumidos.push(compra);
+    }
+    
+    public adicionarServicoConsumido(compra: Compra): void {
+        this.servicosConsumidos.push(compra);
+    }
+    
     public get getPets(): Array<Pet>{
         return this.pets
     }
