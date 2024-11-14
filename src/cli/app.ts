@@ -196,7 +196,7 @@ export class App {
 
     private async handleListagemConsumoOption() {
         const response = await this.entrada.receberSelect('Escolha uma opção:',
-            ['Registro de Consumo', 'Mais Consumidos', 'Deletar Serviços', 'Adquirir Serviços', 'Listar Serviços', 'Voltar']
+            ['Registro de Consumo', 'Mais Consumidos', 'Voltar']
         );
         switch (response) {
             case 'Registro de Consumo':
@@ -204,15 +204,6 @@ export class App {
                 break;
             case 'Mais Consumidos':
                 await this.listagemMaisConsumidos.listar();
-                break;
-            case 'Deletar Serviços':
-                await this.deleteServico.deletar();
-                break;
-            case 'Adquirir Serviços':
-                await this.adquiriServico.adquirir();
-                break;
-            case 'Listar Serviços':
-                this.listagemServicos.listar();
                 break;
             case 'Voltar':
                 console.clear();
